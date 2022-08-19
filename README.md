@@ -4,4 +4,4 @@
 ![alt text](./public/assets/images/img-1.png)
 ![alt text](./public/assets/images/img-2.png)
 
-[Deployed Application](https://d2-note-taker.herokuapp.com/)
+Deployed Application on [Heroku](https://d2-note-taker.herokuapp.com/)
