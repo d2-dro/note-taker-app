@@ -10,29 +10,29 @@ app.use(express.urlencoded({extended: true}));
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, ".Develop/public/notes.html"));
+    res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 app.get('/api/notes', (req,res) => {
-    res.readFile(path.join(__dirname, ".Develop/db/db.json"), 'utf8', (err, data) => {
+    res.readFile(path.join(__dirname, "./db/db.json"), 'utf8', (err, data) => {
         if (err) throw err;
         res.json(JSON.parse(data));
     });
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '.Develop/public/index.html'));
+    res.sendFile(path.join(__dirname, './public/index.html'));
   });
 
   app.post('/api/notes', (req, res) => {
-    fs.readFile(path.join(__dirname,  ".Develop/db/db.json"), 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname,  "./db/db.json"), 'utf8', (err, data) => {
       let db = JSON.parse(data);
       db.push({
         id: uuid.v4(),
         ...req.body,
       });
       fs.writeFile(
-        path.join(__dirname,  ".Develop/db/db.json"),
+        path.join(__dirname,  "./db/db.json"),
         JSON.stringify(db, null, 2),
         (err, data) => {
           if (err) throw err;
